@@ -7,7 +7,9 @@ var config = require('../config'),
   mongoose = require('./mongoose'),
   express = require('./express'),
   chalk = require('chalk'),
-  seed = require('./seed');
+  seed = require('./seed'),
+  envFile = require('./node-env-file');
+
 
 function seedDB() {
   if (config.seedDB && config.seedDB.seed) {
@@ -15,6 +17,10 @@ function seedDB() {
     seed.start();
   }
 }
+
+// Initialize node-env-files
+envFile.loadPublicEnvFile();
+envFile.loadPrivateEnvFile();
 
 // Initialize Models
 mongoose.loadModels(seedDB);

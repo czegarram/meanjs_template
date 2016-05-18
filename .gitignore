@@ -73,3 +73,9 @@ mongod
 *.ntvs*
 *.njsproj
 *.sln
+
+# Node env files
+# =========
+
+#.public-env
+.private-env
